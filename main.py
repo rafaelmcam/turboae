@@ -78,7 +78,7 @@ def import_dec(args):
     elif args.decoder == 'turboae_2int':
         from decoders import DEC_LargeCNN2Int as DEC
 
-    elif args.encoder == 'rate3_cnn':
+    elif args.decoder == 'rate3_cnn':
         from decoders import CNN_decoder_rate3 as DEC
 
     elif args.decoder in ['TurboAE_rate3_cnn2d', 'TurboAE_rate3_cnn2d_dense']:
@@ -218,7 +218,7 @@ if __name__ == '__main__':
     report_loss, report_ber = [], []
 
     for epoch in range(1, args.num_epoch + 1):
-
+        print(f"Starting Epoch {epoch}")
         if args.joint_train == 1 and args.encoder not in ['Turbo_rate3_lte', 'Turbo_rate3_757']:
             for idx in range(args.num_train_enc+args.num_train_dec):
                 train(epoch, model, general_optimizer, args, use_cuda = use_cuda, mode ='encoder')

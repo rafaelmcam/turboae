@@ -1,0 +1,7 @@
+
+
+Time Benchmarks
+
+- HOWTO first model from scratch:
+- 25seconds (1 step) (NO GPU)
+- 1second (1step) (GCP NVIDIA-T4)

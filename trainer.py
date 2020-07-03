@@ -30,8 +30,9 @@ def train(epoch, model, optimizer, args, use_cuda = False, verbose = True, mode 
     k_same_code_counter = 0
 
 
-    for batch_idx in range(int(args.num_block/args.batch_size)):
-
+    num_steps = int(args.num_block/args.batch_size)
+    for batch_idx in range(num_steps):
+        print(f"Step {batch_idx} of {num_steps - 1}. Time from epoch start: {time.time() - start_time}")
 
         if args.is_variable_block_len:
             block_len = np.random.randint(args.block_len_low, args.block_len_high)
