@@ -80,3 +80,5 @@ Start from AWGN converged TurboAE-continuous, and use `-channel atn` and `-chann
 The ATN result (Figure 6 left) actually I didn't train a lot, so the performance could even be better at ATN channel.
 Also note as `ge_awgn` is a sequential dependent channel, simulation is much slower than iid channels.
 
+"Sugestão:"
+    CUDA_VISIBLE_DEVICES=0 python3 main.py -encoder TurboAE_rate3_cnn -decoder TurboAE_rate3_cnn -enc_num_unit 100 -enc_num_layer 5 -dec_num_unit 100 -dec_num_layer 5 -num_iter_ft 5 -channel ge_awgn -num_train_dec 5 -num_train_enc 1 -code_rate_k 1 -code_rate_n 3 -train_enc_channel_low 1.0 -train_enc_channel_high 1.0  -snr_test_start -1.5 -snr_test_end 4.0 -snr_points 12 -num_iteration 6 -is_parallel 1 -train_dec_channel_low -1.5 -train_dec_channel_high 2.0 -is_same_interleaver 1 -dec_lr 0.0001 -enc_lr 0.0001 -num_block 100000 -batch_size 1000 -train_channel_mode block_norm -test_channel_mode block_norm -num_epoch 100 --print_test_traj -loss bce -init_nw_weight models/enc5_dec5_cont_1dBenc.pt

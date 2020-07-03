@@ -164,6 +164,7 @@ if __name__ == '__main__':
 
     else:
         pretrained_model = torch.load(args.init_nw_weight)
+        # pretrained_model = torch.load(args.init_nw_weight, map_location=torch.device("cpu")) # if no GPU
 
         try:
             model.load_state_dict(pretrained_model.state_dict(), strict = False)
