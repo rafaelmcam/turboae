@@ -80,7 +80,7 @@ def generate_noise(noise_shape, args, test_sigma = 'default', snr_low = 0.0, snr
                     else:
                         print('bad!!! something happens')
 
-        fwd_noise = torch.from_numpy(fwd_noise).type(torch.FloatTensor)* torch.randn(noise_shape, dtype=torch.float)
+        fwd_noise = torch.from_numpy(fwd_noise).type(torch.FloatTensor) * torch.randn(noise_shape, dtype=torch.float)
 
     elif args.channel == 'ge':
         #G-E discrete channel

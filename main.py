@@ -95,6 +95,7 @@ def import_dec(args):
 
     return DEC
 
+import pickle
 if __name__ == '__main__':
     #################################################
     # load args & setup logger
@@ -108,6 +109,9 @@ if __name__ == '__main__':
 
     args = get_args()
     print(args)
+    with open('Notebooks/pickelArgs', 'wb') as handle:
+        pickle.dump(args, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 
     use_cuda = not args.no_cuda and torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
